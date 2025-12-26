@@ -6,29 +6,29 @@ const services = [
     icon: <Ambulance size={28} />,
     title: "Ground Medical Transport",
     desc: "24/7 advanced life support ambulances with trained paramedics.",
-    image: "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=800&q=80",
-    color: "from-blue-500 to-blue-600"
+    image: "https://images.unsplash.com/photo-1582719366846-7a0ebb53af7b?w=800&q=80",
+    color: "from-red-600 to-red-700"
   },
   {
     icon: <Plane size={28} />,
     title: "Air Ambulance",
     desc: "Rapid emergency air transfer for critical patients.",
-    image: "https://images.unsplash.com/photo-1583916119450-322b7c9f3a8f?w=800&q=80",
-    color: "from-cyan-500 to-cyan-600"
+    image: "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?w=800&q=80",
+    color: "from-red-600 to-red-700"
   },
   {
     icon: <MapPin size={28} />,
     title: "State-to-State Transfer",
     desc: "Safe long-distance medical transport across regions.",
-    image: "https://images.unsplash.com/photo-1638202947799-e42763d5e34c?w=800&q=80",
-    color: "from-indigo-500 to-indigo-600"
+    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80",
+    color: "from-red-600 to-red-700"
   },
   {
     icon: <Shield size={28} />,
     title: "Insurance Assistance",
     desc: "Complete insurance coordination & documentation support.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    color: "from-purple-500 to-purple-600"
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+    color: "from-red-600 to-red-700"
   },
 ];
 
@@ -47,25 +47,25 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-40 right-40 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-float-delayed"></div>
-        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-red-600/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-40 right-40 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-red-700/10 rounded-full blur-3xl animate-float-slow"></div>
       </div>
 
       <section className="relative z-10 py-20 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header Section */}
           <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-            <div className="inline-flex items-center gap-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 text-blue-400 px-6 py-3 rounded-full mb-6 animate-pulse-slow">
+            <div className="inline-flex items-center gap-2 bg-red-600/10 backdrop-blur-sm border border-red-600/20 text-red-400 px-6 py-3 rounded-full mb-6 animate-pulse-slow">
               <Heart size={18} className="animate-heartbeat" />
               <span className="text-sm font-semibold">Trusted Medical Care</span>
             </div>
             
             <h1 className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent animate-gradient-x">
+              <span className="bg-gradient-to-r from-red-500 via-red-400 to-red-600 bg-clip-text text-transparent animate-gradient-x">
                 Our Medical Services
               </span>
             </h1>
@@ -82,7 +82,7 @@ const ServicesSection = () => {
                   className="flex items-center gap-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-6 py-4 hover:bg-white/10 transition-all duration-300 hover:scale-105"
                   style={{ animationDelay: `${i * 200}ms` }}
                 >
-                  <div className="text-blue-400">
+                  <div className="text-red-400">
                     {stat.icon}
                   </div>
                   <div className="text-left">
@@ -102,12 +102,12 @@ const ServicesSection = () => {
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`group relative bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden
-                  border border-white/10 hover:border-white/20
+                  border border-white/10 hover:border-red-500/30
                   transition-all duration-700 hover:scale-105 hover:-translate-y-3
                   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
                 style={{
                   transitionDelay: `${i * 100 + 400}ms`,
-                  boxShadow: hoveredIndex === i ? '0 25px 50px -12px rgba(59, 130, 246, 0.4)' : 'none'
+                  boxShadow: hoveredIndex === i ? '0 25px 50px -12px rgba(220, 38, 38, 0.4)' : 'none'
                 }}
               >
                 {/* Gradient overlay animation */}
@@ -118,6 +118,10 @@ const ServicesSection = () => {
                   <img 
                     src={service.image}
                     alt={service.title}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.src = 'https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=800&q=80';
+                    }}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125 group-hover:rotate-2"
                   />
                   
@@ -146,7 +150,7 @@ const ServicesSection = () => {
 
                 {/* Content Section */}
                 <div className="p-6 relative">
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-red-400 group-hover:to-red-600 group-hover:bg-clip-text transition-all duration-300">
                     {service.title}
                   </h3>
                   
@@ -155,7 +159,7 @@ const ServicesSection = () => {
                   </p>
 
                   {/* Learn more button */}
-                  <div className={`flex items-center gap-2 text-blue-400 font-semibold text-sm
+                  <div className={`flex items-center gap-2 text-red-400 font-semibold text-sm
                     transition-all duration-500 cursor-pointer
                     ${hoveredIndex === i ? 'translate-x-2' : 'translate-x-0'}`}>
                     <span>Learn More</span>
@@ -177,13 +181,13 @@ const ServicesSection = () => {
 
           {/* Bottom CTA */}
           <div className={`text-center mt-20 transition-all duration-1000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full font-bold text-white text-lg
-              hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 overflow-hidden">
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 rounded-full font-bold text-white text-lg
+              hover:shadow-2xl hover:shadow-red-600/50 transition-all duration-300 hover:scale-105 overflow-hidden">
               <span className="relative z-10 flex items-center gap-2">
                 Get Emergency Help Now
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
           </div>
         </div>
@@ -269,12 +273,12 @@ const ServicesSection = () => {
         }
 
         ::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #3b82f6, #06b6d4);
+          background: linear-gradient(to bottom, #dc2626, #b91c1c);
           border-radius: 5px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #2563eb, #0891b2);
+          background: linear-gradient(to bottom, #b91c1c, #991b1b);
         }
       `}</style>
     </div>
