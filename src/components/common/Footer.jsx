@@ -39,7 +39,7 @@ const Footer = () => {
   return (
     <footer
       className={`relative overflow-hidden py-16 transition-colors duration-500 ${
-        darkMode ? "bg-gray-900 text-gray-300" : "bg-blue-50 text-blue-800"
+        darkMode ? "bg-gray-900 text-gray-300" : "bg-white text-blue-800"
       }`}
     >
       {/* Animated Background Circles */}
