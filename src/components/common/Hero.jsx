@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
   CheckCircle,
@@ -12,8 +12,44 @@ import {
   Zap,
 } from "lucide-react";
 
+/* ================= COUNT UP COMPONENT ================= */
+const CountUp = ({ end, duration = 2000 }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+
+          const startTime = performance.now();
+
+          const animate = (time) => {
+            const progress = Math.min((time - startTime) / duration, 1);
+            setCount(Math.floor(progress * end));
+
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+
+          requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return <span ref={ref}>{count}</span>;
+};
+
+/* ================= HERO SECTION ================= */
 const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0);
+
   const [darkMode, setDarkMode] = useState(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) return storedTheme === "dark";
@@ -21,16 +57,11 @@ const HeroSection = () => {
   });
 
   useEffect(() => {
-    // Listen for theme changes
     const handleThemeChange = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setDarkMode(isDark);
+      setDarkMode(document.documentElement.classList.contains("dark"));
     };
 
-    // Check theme on mount
     handleThemeChange();
-
-    // Listen for changes
     const observer = new MutationObserver(handleThemeChange);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -46,9 +77,10 @@ const HeroSection = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 4000);
+    const interval = setInterval(
+      () => setCurrentImage((p) => (p + 1) % images.length),
+      4000
+    );
     return () => clearInterval(interval);
   }, []);
 
@@ -61,18 +93,34 @@ const HeroSection = () => {
 
   const stats = [
     {
-      number: "15K+",
+      value: 15,
+      suffix: "K+",
       label: "Patients Transported",
       icon: <Heart size={24} />,
     },
-    { number: "99.8%", label: "Success Rate", icon: <CheckCircle size={24} /> },
-    { number: "24/7", label: "Available Always", icon: <Clock size={24} /> },
-    { number: "50+", label: "Medical Vehicles", icon: <Ambulance size={24} /> },
+    {
+      value: 99,
+      suffix: ".8%",
+      label: "Success Rate",
+      icon: <CheckCircle size={24} />,
+    },
+    {
+      value: 24,
+      suffix: "/7",
+      label: "Available Always",
+      icon: <Clock size={24} />,
+    },
+    {
+      value: 50,
+      suffix: "+",
+      label: "Medical Vehicles",
+      icon: <Ambulance size={24} />,
+    },
   ];
 
   return (
     <div
-      className={`relative min-h-screen pt-20 overflow-hidden transition-colors duration-300 ${
+      className={`relative pt-20 overflow-hidden transition-colors duration-300 ${
         darkMode ? "bg-gray-900" : "bg-white"
       }`}
     >
@@ -132,16 +180,11 @@ const HeroSection = () => {
                 <span className="relative inline-block">
                   <span
                     className={`${
-                      darkMode
-                        ? " text-blue-300 "
-                        : " text-blue-700 "
+                      darkMode ? " text-blue-300 " : " text-blue-700 "
                     }`}
                   >
                     Counts
                   </span>
-
-                  <div className="absolute -bottom-3 left-0 right-0 h-4 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 opacity-20 blur-md animate-pulse-slow"></div>
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 to-blue-800 animate-expand-width"></div>
                 </span>
               </h1>
 
@@ -233,11 +276,14 @@ const HeroSection = () => {
                   >
                     {stat.icon}
                   </div>
+
                   <div className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                    {stat.number}
+                    <CountUp end={stat.value} />
+                    {stat.suffix}
                   </div>
+
                   <div
-                    className={`text-xs sm:text-sm font-semibold mt-1 ${
+                    className={`text-xs sm:text-sm font-semibold mt-1 whitespace-nowrap overflow-hidden text-ellipsis ${
                       darkMode ? "text-gray-400" : "text-gray-600"
                     }`}
                   >

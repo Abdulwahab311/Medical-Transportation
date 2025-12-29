@@ -32,6 +32,9 @@ const Navbar = () => {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
+    
+    // Dispatch custom event to notify other components
+    window.dispatchEvent(new Event("themeChange"));
   }, [darkMode]);
 
   const toggleTheme = () => setDarkMode((prev) => !prev);
