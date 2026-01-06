@@ -13,7 +13,6 @@ import {
   Shield,
 } from "lucide-react";
 
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -41,25 +40,25 @@ const Navbar = () => {
       icon: <Ambulance size={22} />,
       title: "Ground Medical Transport",
       description: "Advanced life support ambulances with trained staff",
-      link: "/services/ground",
+      link: "/services/ground-medical-transport",
     },
     {
       icon: <Plane size={22} />,
       title: "Air Ambulance",
       description: "Rapid air transport for critical care cases",
-      link: "/services/air",
+      link: "/services/air-ambulance",
     },
     {
       icon: <MapPin size={22} />,
       title: "Long Distance Transfers",
       description: "State-to-state medical transportation",
-      link: "/services/state",
+      link: "/services/long-distance-transfer",
     },
     {
       icon: <Shield size={22} />,
       title: "Insurance Assistance",
       description: "Billing and insurance coordination support",
-      link: "/services/insurance",
+      link: "/services/insurance-assistance",
     },
   ];
 
@@ -67,11 +66,7 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 font-inter transition-all duration-300
       backdrop-blur-md border-b shadow-sm
-      ${
-        darkMode
-          ? "bg-[#1F2937]/95 border-gray-800 text-white"
-          : "bg-[#F7F9FC]/95 border-gray-200 text-[#1F2937]"
-      }`}
+      ${darkMode ? "bg-[#1F2937]/95 border-gray-800 text-white" : "bg-[#F7F9FC]/95 border-gray-200 text-[#1F2937]"}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -97,78 +92,66 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {[
+            {[ 
               { label: "Home", to: "/" },
               { label: "How It Works", to: "/how-it-works" },
               { label: "For Caregivers", to: "/caregivers" },
               { label: "About Us", to: "/about" },
-              { label: "Support", to: "/support" },
             ].map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
-                className="relative px-4 py-2 font-medium transition-all duration-300
-                hover:text-[#4B5BD7] hover:-translate-y-0.5"
+                className="relative px-4 py-2 font-medium transition-all duration-300 hover:text-[#4B5BD7] hover:-translate-y-0.5"
               >
                 {item.label}
-                <span
-                  className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#4B5BD7]
-                  transition-all duration-300 group-hover:w-full"
-                />
               </Link>
             ))}
 
-            {/* Services */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
-            >
-              <button
-                className="flex items-center gap-1 px-4 py-2 font-medium
-                hover:text-[#4B5BD7] transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Services
-                <ChevronDown
-                  size={16}
-                  className={`transition-transform duration-300 ${
-                    servicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+            {/* Services Dropdown after About Us */}
+<div
+  className="relative"
+  onMouseEnter={() => setServicesOpen(true)}
+  
+>
+  <button
+    className="flex items-center gap-1 px-4 py-2 font-medium hover:text-[#4B5BD7] transition-all duration-300 hover:-translate-y-0.5"
+  >
+    Services
+    <ChevronDown
+      size={16}
+      className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
+    />
+  </button>
 
-              <div
-                className={`absolute left-0 mt-3 w-96 rounded-xl shadow-xl border
-                transition-all duration-300 origin-top
-                ${
-                  servicesOpen
-                    ? "opacity-100 scale-100 translate-y-0"
-                    : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-                }
-                ${
-                  darkMode
-                    ? "bg-gray-800 border-gray-700"
-                    : "bg-white border-gray-200"
-                }`}
-              >
-                {services.map((service, i) => (
-                  <Link
-                    key={i}
-                    to={service.link}
-                    className="flex gap-4 px-6 py-4 transition-all duration-300
-                    hover:bg-[#F7F9FC] dark:hover:bg-gray-700"
-                  >
-                    <div className="text-[#3ECFB2]">{service.icon}</div>
-                    <div>
-                      <h3 className="font-semibold">{service.title}</h3>
-                      <p className="text-sm text-[#6B7280]">
-                        {service.description}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+  <div
+    className={`absolute left-0 mt-3 w-96 rounded-xl shadow-xl border transition-all duration-300 origin-top
+    ${servicesOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"}
+    ${darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"}`}
+  >
+    {services.map((service, i) => (
+      <Link
+        key={i}
+        to={service.link}
+        onClick={(e) => e.stopPropagation()} // Prevent hover close on click
+        className="flex gap-4 px-6 py-4 transition-all duration-300 hover:bg-[#F7F9FC] dark:hover:bg-gray-700"
+      >
+        <div className="text-[#3ECFB2]">{service.icon}</div>
+        <div>
+          <h3 className="font-semibold">{service.title}</h3>
+          <p className="text-sm text-[#6B7280] dark:text-gray-300">{service.description}</p>
+        </div>
+      </Link>
+    ))}
+  </div>
+</div>
+
+            {/* Support */}
+            <Link
+              to="/support"
+              className="relative px-4 py-2 font-medium transition-all duration-300 hover:text-[#4B5BD7] hover:-translate-y-0.5"
+            >
+              Support
+            </Link>
           </div>
 
           {/* Right Actions */}
@@ -176,9 +159,7 @@ const Navbar = () => {
             <button
               onClick={toggleTheme}
               className={`p-3 rounded-xl transition-transform duration-300 hover:rotate-180 ${
-                darkMode
-                  ? "bg-gray-800 text-white"
-                  : "bg-white text-[#4B5BD7]"
+                darkMode ? "bg-gray-800 text-white" : "bg-white text-[#4B5BD7]"
               }`}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -186,17 +167,14 @@ const Navbar = () => {
 
             <Link
               to="/booking"
-              className="hidden md:flex items-center px-6 py-3 rounded-xl font-semibold text-white
-              bg-[#FF7A6C] hover:scale-105 transition-transform duration-300"
+              className="hidden md:flex items-center px-6 py-3 rounded-xl font-semibold text-white bg-[#FF7A6C] hover:scale-105 transition-transform duration-300"
             >
               Book a Ride
             </Link>
 
             <button
               onClick={() => setOpen(!open)}
-              className={`md:hidden p-3 rounded-xl ${
-                darkMode ? "bg-gray-800 text-white" : "bg-white text-[#4B5BD7]"
-              }`}
+              className={`md:hidden p-3 rounded-xl ${darkMode ? "bg-gray-800 text-white" : "bg-white text-[#4B5BD7]"}`}
             >
               {open ? <X size={24} /> : <Menu size={24} />}
             </button>

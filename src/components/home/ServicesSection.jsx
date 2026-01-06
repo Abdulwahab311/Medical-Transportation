@@ -8,6 +8,8 @@ import {
   Clock,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 const services = [
   {
@@ -18,6 +20,7 @@ const services = [
       "https://images.unsplash.com/photo-1582719366846-7a0ebb53af7b?w=800&q=80",
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
+    path: "/services/ground-medical-transport",
   },
   {
     icon: <Plane size={28} />,
@@ -27,15 +30,17 @@ const services = [
       "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?w=800&q=80",
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
+    path: "/services/air-ambulance",
   },
   {
     icon: <MapPin size={28} />,
-    title: "State-to-State Transfer",
-    desc: "Safe long-distance medical transport across regions.",
+    title: "Long Distance Transfer",
+    desc: "Safe State-to-State medical transport across regions.",
     image:
       "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80",
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
+    path: "/services/long-distance-transfer",
   },
   {
     icon: <Shield size={28} />,
@@ -45,8 +50,10 @@ const services = [
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
+    path: "/services/insurance-assistance",
   },
 ];
+
 
 const stats = [
   { icon: <Heart size={24} />, number: "10K+", label: "Patients Served" },
@@ -163,19 +170,21 @@ const ServicesSection = () => {
 
                   <div className="flex items-center justify-between">
                     {/* Learn More */}
-                    <div
-                      className={`flex items-center gap-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${
-                        hoveredIndex === i ? "translate-x-1" : ""
-                      } ${darkMode ? "text-[#3ECFB2]" : "text-[#4B5BD7]"}`}
-                    >
-                      Learn More
-                      <ArrowRight
-                        size={16}
-                        className={`transition-transform duration-300 ${
-                          hoveredIndex === i ? "translate-x-1" : ""
-                        }`}
-                      />
-                    </div>
+                    <Link
+  to={service.path}
+  className={`flex items-center gap-2 text-sm font-semibold cursor-pointer transition-all duration-300 ${
+    hoveredIndex === i ? "translate-x-1" : ""
+  } ${darkMode ? "text-[#3ECFB2]" : "text-[#4B5BD7]"}`}
+>
+  Learn More
+  <ArrowRight
+    size={16}
+    className={`transition-transform duration-300 ${
+      hoveredIndex === i ? "translate-x-1" : ""
+    }`}
+  />
+</Link>
+
 
                     {/* Book Now */}
                     <button
