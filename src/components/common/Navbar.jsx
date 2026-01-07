@@ -111,7 +111,7 @@ const Navbar = () => {
 <div
   className="relative"
   onMouseEnter={() => setServicesOpen(true)}
-  
+ 
 >
   <button
     className="flex items-center gap-1 px-4 py-2 font-medium hover:text-[#4B5BD7] transition-all duration-300 hover:-translate-y-0.5"
@@ -141,16 +141,17 @@ const Navbar = () => {
           <p className="text-sm text-[#6B7280] dark:text-gray-300">{service.description}</p>
         </div>
       </Link>
+      
     ))}
   </div>
 </div>
 
-            {/* Support */}
+            {/* Contact us */}
             <Link
-              to="/support"
+              to="/contact-us"
               className="relative px-4 py-2 font-medium transition-all duration-300 hover:text-[#4B5BD7] hover:-translate-y-0.5"
             >
-              Support
+            Contact Us
             </Link>
           </div>
 
@@ -181,6 +182,83 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {/* Mobile Menu */}
+{open && (
+  <div
+    className={`md:hidden border-t ${
+      darkMode
+        ? "bg-[#1F2937] border-gray-800 text-white"
+        : "bg-[#F7F9FC] border-gray-200 text-[#1F2937]"
+    }`}
+  >
+    <div className="flex flex-col px-4 py-5 space-y-2 font-medium">
+      <Link to="/" onClick={() => setOpen(false)} className="py-2">
+        Home
+      </Link>
+
+      <Link to="/how-it-works" onClick={() => setOpen(false)} className="py-2">
+        How It Works
+      </Link>
+
+      <Link to="/caregivers" onClick={() => setOpen(false)} className="py-2">
+        For Caregivers
+      </Link>
+
+      <Link to="/about" onClick={() => setOpen(false)} className="py-2">
+        About Us
+      </Link>
+
+  {/* Services Dropdown */}
+<div className="pt-2">
+  <button
+    onClick={() => setServicesOpen(!servicesOpen)}
+    className="flex w-full items-center justify-between py-2 font-semibold"
+  >
+    <span>Services</span>
+    <ChevronDown
+      size={18}
+      className={`transition-transform duration-300 ${
+        servicesOpen ? "rotate-180" : ""
+      }`}
+    />
+  </button>
+
+  {servicesOpen && (
+    <div className="mt-2 flex flex-col space-y-2">
+      {services.map((service, i) => (
+        <Link
+          key={i}
+          to={service.link}
+          onClick={() => {
+            setServicesOpen(false);
+            setOpen(false);
+          }}
+          className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+        >
+          <div className="text-[#3ECFB2]">{service.icon}</div>
+          <p className="font-semibold">{service.title}</p>
+        </Link>
+      ))}
+    </div>
+  )}
+</div>
+
+
+      <Link to="/contact-us" onClick={() => setOpen(false)} className="py-2">
+       Contact Us
+      </Link>
+
+      <Link
+        to="/booking"
+        onClick={() => setOpen(false)}
+        className="mt-4 flex justify-center rounded-xl bg-[#FF7A6C] py-3 font-semibold text-white"
+      >
+        Book a Ride
+      </Link>
+    </div>
+  </div>
+)}
+
     </nav>
   );
 };

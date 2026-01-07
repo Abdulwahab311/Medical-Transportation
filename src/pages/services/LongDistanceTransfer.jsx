@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
 import distance from "../../assets/images/distance.jpg";
-import vehicleImage from "../../assets/images/vehicle.jpg";
+import longImage from "../../assets/images/long.jpg";
 import { Ambulance, Users, HeartPulse, CheckCircle, MapPin, Clock } from "lucide-react";
 
 const LongDistanceTransfer = () => {
@@ -38,9 +38,12 @@ const LongDistanceTransfer = () => {
 
       {/* Navbar */}
       <Navbar />
+        {/* Background Glow */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20" />
+      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20" />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 text-center overflow-hidden">
+      <section className="relative pt-32 pb-24 text-center overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1600&q=80')] bg-center bg-cover opacity-60 transition-all duration-700" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 animate-fade-in-up">
           <h1 className="text-5xl font-extrabold mb-4 text-gradient bg-gradient-to-r from-[#4B5BD7] to-[#3ECFB2] bg-clip-text text-transparent transition-transform duration-700 hover:scale-105">
@@ -146,7 +149,7 @@ const LongDistanceTransfer = () => {
           {/* Image */}
           <div className="relative h-[380px] rounded-3xl overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-105 hover:shadow-2xl">
             <img
-              src={distance}
+              src={longImage}
               alt="Long distance medical transport"
               className="w-full h-full object-cover transition-transform duration-700"
             />
@@ -201,7 +204,7 @@ const LongDistanceTransfer = () => {
         <p className="text-lg text-[#6B7280] dark:text-gray-300 mb-8 max-w-3xl mx-auto transition-opacity duration-500">
           Schedule your long-distance medical transport with confidence. Our team ensures a safe, professional, and comfortable journey for you or your loved ones.
         </p>
-        <a href="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-[#FF7A6C] to-[#FF6A5A] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF6A5A]/50">
+        <a href="/booking" className="inline-block px-8 py-4 bg-gradient-to-r from-[#FF7A6C] to-[#FF6A5A] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF6A5A]/50">
           Book Now
         </a>
       </section>

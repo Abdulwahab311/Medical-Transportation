@@ -9,6 +9,11 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import groundImage from "../../assets/images/ground.png";
+import airImage from "../../assets/images/air.jpg"; 
+import longImage from "../../assets/images/long.jpg"
+
+
 
 
 const services = [
@@ -16,8 +21,7 @@ const services = [
     icon: <Ambulance size={28} />,
     title: "Ground Medical Transport",
     desc: "24/7 advanced life support ambulances with trained paramedics.",
-    image:
-      "https://images.unsplash.com/photo-1582719366846-7a0ebb53af7b?w=800&q=80",
+    image: groundImage,
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
     path: "/services/ground-medical-transport",
@@ -26,8 +30,7 @@ const services = [
     icon: <Plane size={28} />,
     title: "Air Ambulance",
     desc: "Rapid emergency air transfer for critical patients.",
-    image:
-      "https://images.unsplash.com/photo-1519494080410-f9aa76cb4283?w=800&q=80",
+    image:  airImage,
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
     path: "/services/air-ambulance",
@@ -36,8 +39,7 @@ const services = [
     icon: <MapPin size={28} />,
     title: "Long Distance Transfer",
     desc: "Safe State-to-State medical transport across regions.",
-    image:
-      "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80",
+    image: longImage,
     colorLight: "from-[#4B5BD7] to-[#3ECFB2]",
     colorDark: "from-[#4B5BD7] to-[#3ECFB2]",
     path: "/services/long-distance-transfer",
@@ -123,6 +125,11 @@ const ServicesSection = () => {
     <div className={`relative transition-colors duration-500 ${darkMode ? "bg-gray-900" : "bg-[#F7F9FC]"}`}>
       <section className="relative z-10 py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
+
+{/* Background Glow */}
+<div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20 animate-pulse-slow" />
+      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20 animate-pulse-slow" />
+
 
           {/* Header */}
           <div className={`mb-20 transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}>
