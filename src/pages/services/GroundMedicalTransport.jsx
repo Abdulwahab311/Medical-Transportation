@@ -48,7 +48,8 @@ const GroundMedicalTransport = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 text-center overflow-hidden">
   {/* Background Image */}
-  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1600&q=80')] bg-center bg-cover opacity-60 transition-all duration-700" />
+  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1600&q=80')] bg-[center_20%] bg-cover opacity-60 transition-all duration-700" />
+
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#4B5BD7]">
@@ -78,17 +79,21 @@ const GroundMedicalTransport = () => {
             >
               What Is Ground Medical Transport?
             </h2>
-            <p className="text-lg text-[#6B7280] dark:text-gray-300 mb-6">
-              Ground medical transport provides non-emergency and emergency
-              ambulance services staffed with trained EMTs and equipped vehicles
-              designed for patient safety, monitoring, and comfort during
-              transport.
-            </p>
-            <ul className="space-y-2 text-[#1F2937] dark:text-gray-300">
-              <li>✔ Advanced Life Support ambulances</li>
-              <li>✔ Certified EMTs & trained drivers</li>
-              <li>✔ Scheduled & emergency transfers</li>
-            </ul>
+            <p
+    className={`text-lg mb-6 ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
+    Ground medical transport provides non-emergency and emergency
+    ambulance services staffed with trained EMTs and equipped vehicles
+    designed for patient safety, monitoring, and comfort during
+    transport.
+  </p>
+  <ul className={`space-y-2 ${darkMode ? "text-gray-300" : "text-[#1F2937]"}`}>
+    <li>✔ Advanced Life Support ambulances</li>
+    <li>✔ Certified EMTs & trained drivers</li>
+    <li>✔ Scheduled & emergency transfers</li>
+  </ul>
           </div>
 
           <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -188,22 +193,26 @@ const GroundMedicalTransport = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7]">
-          Need Ground Medical Transport?
-        </h2>
-        <p className="text-lg text-[#6B7280] dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-          Contact us anytime for reliable, safe, and professional ground medical
-          transportation services.
-        </p>
-        <a
-          href="/contact"
-          className="inline-block px-8 py-4 bg-[#FF7A6C] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF7A6C]/50 hover:bg-[#FF6A5A]"
-        >
-          Book Ground Transport
-        </a>
-      </section>
+    {/* CTA Section */}
+<section className="py-24 text-center">
+  <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7]">
+    Need Ground Medical Transport?
+  </h2>
+  <p
+    className={`text-lg max-w-2xl mx-auto text-center ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
+    Contact us anytime for reliable, safe, and professional ground medical
+    transportation services.
+  </p>
+  <a
+    href="/contact"
+    className="inline-block mt-6 px-6 py-3 bg-[#FF7A6C] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF7A6C]/50 hover:bg-[#FF6A5A]"
+  >
+    Book Ground Transport
+  </a>
+</section>
 
       {/* Footer */}
       <Footer />

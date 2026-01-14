@@ -43,7 +43,11 @@ const ContactUs = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-[#4B5BD7] mb-4">
               Contact Us
             </h1>
-            <p className="text-lg md:text-xl text-[#6B7280] dark:text-gray-300">
+            <p
+  className={`text-lg max-w-2xl mx-auto text-center ${
+    darkMode ? "text-gray-300" : "text-[#6B7280]"
+  }`}
+>
               We’re here to assist you 24/7. Reach out to us via any of the methods below.
             </p>
           </header>

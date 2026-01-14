@@ -59,49 +59,54 @@ const InsuranceAssistance = () => {
       {/* Overview Section */}
       <section className="py-24 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-          {/* Text */}
-          <div className="space-y-6 transition-all duration-700">
-            <h2
-              className={`text-4xl font-extrabold transition-transform duration-500 hover:scale-105 ${
-                darkMode ? "text-white" : "text-[#4B5BD7]"
-              }`}
-            >
-              How We Help With Insurance
-            </h2>
+        {/* Text */}
+<div className="space-y-6 transition-all duration-700">
+  <h2
+    className={`text-3xl font-semibold mb-6 transition-transform duration-500 hover:scale-105 ${
+      darkMode ? "text-white" : "text-[#4B5BD7]"
+    }`}
+  >
+    How We Help With Insurance
+  </h2>
 
-            <p className="text-lg leading-relaxed text-[#6B7280] dark:text-gray-300 transition-opacity duration-500">
-              Navigating medical transport insurance can be complex. Our
-              experienced team works directly with providers to streamline
-              approvals and reduce delays.
-            </p>
+  <p
+    className={`text-lg leading-relaxed transition-opacity duration-500 ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
+    Navigating medical transport insurance can be complex. Our
+    experienced team works directly with providers to streamline
+    approvals and reduce delays.
+  </p>
 
-            <ul className="space-y-3">
-              {[
-                {
-                  icon: <ShieldCheck className="text-[#3ECFB2]" />,
-                  text: "Insurance verification & eligibility checks",
-                },
-                {
-                  icon: <FileText className="text-[#3ECFB2]" />,
-                  text: "Claims processing & documentation",
-                },
-                {
-                  icon: <Users className="text-[#3ECFB2]" />,
-                  text: "Direct coordination with insurance providers",
-                },
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1"
-                >
-                  {item.icon}
-                  <span className="text-base md:text-lg leading-relaxed text-[#1F2937] dark:text-gray-300">
-                    {item.text}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <ul className={`space-y-3 ${darkMode ? "text-gray-300" : "text-[#1F2937]"}`}>
+    {[
+      {
+        icon: <ShieldCheck className="text-[#3ECFB2]" />,
+        text: "Insurance verification & eligibility checks",
+      },
+      {
+        icon: <FileText className="text-[#3ECFB2]" />,
+        text: "Claims processing & documentation",
+      },
+      {
+        icon: <Users className="text-[#3ECFB2]" />,
+        text: "Direct coordination with insurance providers",
+      },
+    ].map((item, i) => (
+      <li
+        key={i}
+        className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1"
+      >
+        {item.icon}
+        <span className={`text-base md:text-lg leading-relaxed`}>
+          {item.text}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
           {/* Image */}
           <div className="relative h-[380px] rounded-3xl overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-105">
@@ -117,11 +122,7 @@ const InsuranceAssistance = () => {
       {/* Key Benefits */}
       <section className="py-24 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2
-            className={`text-4xl font-extrabold mb-12 transition-transform duration-500 hover:scale-105 ${
-              darkMode ? "text-white" : "text-[#4B5BD7]"
-            }`}
-          >
+        <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
             What You Can Expect
           </h2>
 
@@ -145,7 +146,7 @@ const InsuranceAssistance = () => {
                   size={36}
                 />
                 <h3
-                  className={`text-xl font-bold mb-2 transition-transform duration-500 group-hover:scale-105 ${
+                  className={`text-xl font mb-2 transition-transform duration-500 group-hover:scale-105 ${
                     darkMode ? "text-white" : "text-[#1F2937]"
                   }`}
                 >
@@ -170,22 +171,30 @@ const InsuranceAssistance = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 text-center animate-fade-in-up">
-        <h2 className="text-3xl font-extrabold mb-4 text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
-          Need Help With Insurance?
-        </h2>
-        <p className="text-lg leading-relaxed text-[#6B7280] dark:text-gray-300 mb-8 max-w-3xl mx-auto transition-opacity duration-500">
-          Contact our team anytime for assistance with approvals and insurance
-          coordination.
-        </p>
-        <a
-          href="/contact-us"
-          className="inline-block px-8 py-4 bg-gradient-to-r from-[#FF7A6C] to-[#FF6A5A] text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF6A5A]/50"
-        >
-          Get Assistance
-        </a>
-      </section>
+{/* CTA */}
+<section className="py-24 text-center animate-fade-in-up">
+  <h2
+    className={`text-3xl font-semibold mb-6 transition-transform duration-500 hover:scale-105 ${
+      darkMode ? "text-white" : "text-[#4B5BD7]"
+    }`}
+  >
+    Need Help With Insurance?
+  </h2>
+  <p
+    className={`text-lg leading-relaxed mb-8 max-w-3xl mx-auto transition-opacity duration-500 ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
+    Contact our team anytime for assistance with approvals and insurance
+    coordination.
+  </p>
+  <a
+    href="/contact-us"
+    className="inline-block mt-6 px-8 py-4 bg-gradient-to-r from-[#FF7A6C] to-[#FF6A5A] text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF6A5A]/50"
+  >
+    Get Assistance
+  </a>
+</section>
 
       {/* Footer */}
       <Footer />

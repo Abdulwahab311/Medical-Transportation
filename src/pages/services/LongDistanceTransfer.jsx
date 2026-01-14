@@ -71,80 +71,46 @@ const LongDistanceTransfer = () => {
         </div>
       </section>
 
-    {/* Who It Is For Card */}
-<section className="py-20 transition-colors duration-500 animate-fade-in-up">
-  <div className="max-w-5xl mx-auto px-4">
-    <div
-      className={`group rounded-3xl overflow-hidden backdrop-blur-md border transition-all duration-700 hover:-translate-y-2 hover:shadow-xl ${
-        darkMode ? "bg-gray-800/50 border-[#3ECFB2]/40" : "bg-white border-gray-200"
-      }`}
-    >
-      <div className="p-6 text-center">
-        {/* Icon */}
-        <div className="mb-4 flex justify-center animate-bounce-slow">
-          <Users
-            size={36}
-            className={`${
-              darkMode ? "text-[#3ECFB2]" : "text-[#4B5BD7]"
-            } transition-transform duration-500 group-hover:scale-110`}
-          />
-        </div>
-
-        {/* Heading */}
-        <h2
-          className={`text-3xl font-semibold mb-4 transition-colors duration-500 ${
-            darkMode ? "text-white" : "text-[#4B5BD7]"
-          }`}
-        >
-          Who it is for
-        </h2>
-
-        {/* Text */}
-        <p
-          className={`text-base transition-colors duration-500 ${
-            darkMode ? "text-gray-300" : "text-[#1F2937]"
-          } max-w-2xl mx-auto mb-2`}
-        >
-          Perfect for patients requiring intercity medical transport, families seeking reliable care, and healthcare facilities arranging safe transfers. Our service is designed to meet the needs of all age groups, including seniors and patients with special medical requirements.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+ 
 
       {/* What to Expect */}
       <section id="details" className="py-24 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-          {/* Text */}
-          <div className="space-y-6 transition-opacity duration-700">
-            <h2 className="text-4xl font-extrabold text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
-              What to Expect From Our Service
-            </h2>
-            <p className="text-lg text-[#6B7280] dark:text-gray-300 transition-opacity duration-500">
-              Our long-distance ambulance service delivers compassionate and
-              medically supervised transport across states, ensuring safety,
-              comfort, and peace of mind.
-            </p>
+        {/* Text */}
+<div className="space-y-6 transition-opacity duration-700">
+<h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
+    What to Expect From Our Service
+  </h2>
+  <p
+    className={`text-lg ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    } transition-opacity duration-500`}
+  >
+    Our long-distance ambulance service delivers compassionate and
+    medically supervised transport across states, ensuring safety,
+    comfort, and peace of mind.
+  </p>
 
-            <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-[#1F2937] dark:text-gray-300 transition-transform duration-500 hover:translate-x-1">
-                <Ambulance className="text-[#3ECFB2]" />
-                Fully equipped ambulances for long journeys
-              </li>
-              <li className="flex items-center gap-3 text-[#1F2937] dark:text-gray-300 transition-transform duration-500 hover:translate-x-1">
-                <HeartPulse className="text-[#3ECFB2]" />
-                Medical professionals onboard throughout transport
-              </li>
-              <li className="flex items-center gap-3 text-[#1F2937] dark:text-gray-300 transition-transform duration-500 hover:translate-x-1">
-                <MapPin className="text-[#3ECFB2]" />
-                Nationwide and interstate coverage
-              </li>
-              <li className="flex items-center gap-3 text-[#1F2937] dark:text-gray-300 transition-transform duration-500 hover:translate-x-1">
-                <Clock className="text-[#3ECFB2]" />
-                24/7 scheduling and patient monitoring
-              </li>
-            </ul>
-          </div>
+  <ul className={`space-y-3 ${darkMode ? "text-gray-300" : "text-[#1F2937]"}`}>
+    <li className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
+      <Ambulance className="text-[#3ECFB2]" />
+      Fully equipped ambulances for long journeys
+    </li>
+    <li className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
+      <HeartPulse className="text-[#3ECFB2]" />
+      Medical professionals onboard throughout transport
+    </li>
+    <li className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
+      <MapPin className="text-[#3ECFB2]" />
+      Nationwide and interstate coverage
+    </li>
+    <li className="flex items-center gap-3 transition-transform duration-500 hover:translate-x-1">
+      <Clock className="text-[#3ECFB2]" />
+      24/7 scheduling and patient monitoring
+    </li>
+  </ul>
+</div>
+
 
           {/* Image */}
           <div className="relative h-[380px] rounded-3xl overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-105 hover:shadow-2xl">
@@ -160,7 +126,7 @@ const LongDistanceTransfer = () => {
       {/* Comfort & Features */}
       <section className="py-24 transition-colors duration-500 animate-fade-in-up">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className={`text-4xl font-extrabold mb-12 ${darkMode ? "text-white" : "text-[#4B5BD7]"} transition-transform duration-500 hover:scale-105`}>
+        <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
             Safe, Comfortable & Professional
           </h2>
 
@@ -195,19 +161,25 @@ const LongDistanceTransfer = () => {
           </div>
         </div>
       </section>
-
-      {/* Booking CTA */}
-      <section className="py-24 text-center animate-fade-in-up">
-        <h2 className="text-3xl font-extrabold mb-4 text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
-          Ready to Book Your Ride?
-        </h2>
-        <p className="text-lg text-[#6B7280] dark:text-gray-300 mb-8 max-w-3xl mx-auto transition-opacity duration-500">
-          Schedule your long-distance medical transport with confidence. Our team ensures a safe, professional, and comfortable journey for you or your loved ones.
-        </p>
-        <a href="/booking" className="inline-block px-8 py-4 bg-gradient-to-r from-[#FF7A6C] to-[#FF6A5A] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF6A5A]/50">
-          Book Now
-        </a>
-      </section>
+{/* Booking CTA */}
+<section className="py-24 text-center animate-fade-in-up">
+  <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7] transition-transform duration-500 hover:scale-105">
+    Ready to Book Your Ride?
+  </h2>
+  <p
+    className={`text-lg max-w-2xl mx-auto text-center ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
+    Schedule your long-distance medical transport with confidence. Our team ensures a safe, professional, and comfortable journey for you or your loved ones.
+  </p>
+  <a
+    href="/booking"
+    className="inline-block mt-6 px-8 py-4 bg-gradient-to-r from-[#FF7A6C] to-[#FF6A5A] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF6A5A]/50"
+  >
+    Book Now
+  </a>
+</section>
 
       {/* Footer */}
       <Footer />

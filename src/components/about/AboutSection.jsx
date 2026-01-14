@@ -6,6 +6,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import cleanVehicleImg from "../../assets/images/clean.png";
 
 const AboutSection = () => {
@@ -68,6 +69,20 @@ const AboutSection = () => {
     },
   ];
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
+    }),
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
   return (
     <section
       className={`relative py-28 overflow-hidden font-inter transition-colors duration-500 ${
@@ -80,42 +95,64 @@ const AboutSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         {/* HEADER */}
-        <div className="text-center mb-24">
+        <motion.div
+          className="text-center mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <span className="inline-block mb-4 px-5 py-2 rounded-full text-sm font-semibold bg-[#3ECFB2]/20 text-[#3ECFB2]">
             About Us
           </span>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#4B5BD7]">
             Trusted Medical Transportation
           </h1>
-          <p className="max-w-3xl mx-auto text-lg leading-relaxed text-[#6B7280] dark:text-gray-300">
+          <p
+            className={`text-lg max-w-2xl mx-auto text-center ${
+              darkMode ? "text-gray-300" : "text-[#6B7280]"
+            }`}
+          >
             Providing safe, reliable, and compassionate medical transport for
             patients, families, hospitals, and caregivers.
           </p>
-        </div>
+        </motion.div>
 
         {/* SLIDER + MISSION */}
         <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
           {/* Image Slider */}
-          <div className="relative h-[420px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
-  <img
-    src={images[activeSlide]}
-    alt=""
-    onError={(e) => {
-      e.currentTarget.src =
-        "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&auto=format&fit=crop&q=80";
-    }}
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-</div>
-
+          <motion.div
+            className="relative h-[420px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <img
+              src={images[activeSlide]}
+              alt=""
+              onError={(e) => {
+                e.currentTarget.src =
+                  "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&auto=format&fit=crop&q=80";
+              }}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+          </motion.div>
 
           {/* Mission */}
-          <div>
-            <h2 className="text-4xl font-bold mb-6">
-              Our Mission
-            </h2>
-            <p className="text-lg leading-relaxed mb-8 text-[#6B7280] dark:text-gray-300">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+          >
+            <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
+            <p
+              className={`text-lg leading-relaxed mb-8 max-w-2xl  ${
+                darkMode ? "text-gray-300" : "text-[#6B7280]"
+              }`}
+            >
               We exist to bridge the gap between patients and life-saving care.
               Our mission is to deliver every patient safely, comfortably, and
               on time — with professionalism and compassion at every step.
@@ -128,124 +165,165 @@ const AboutSection = () => {
                 "Clean, modern, monitored vehicles",
                 "Patient-first service culture",
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
+                <motion.li
+                  key={i}
+                  className="flex items-center gap-3"
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                >
                   <CheckCircle size={20} className="text-[#3ECFB2]" />
-                  <span className="text-[#6B7280] dark:text-gray-300">
+                  <span
+                    className={`${
+                      darkMode ? "text-gray-300" : "text-[#6B7280]"
+                    }`}
+                  >
                     {item}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
+          </motion.div>
+        </div>
+
+        {/* ABOUT SERVICE */}
+        <motion.div
+          className="mb-32"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">
+              About Our Transportation Service
+            </h2>
+            <p
+              className={`text-lg max-w-2xl mx-auto text-center ${
+                darkMode ? "text-gray-300" : "text-[#6B7280]"
+              }`}
+            >
+              We provide safe, reliable, and compassionate non-emergency medical
+              transportation — treating every passenger like family.
+            </p>
           </div>
-        </div>
 
-     {/* ABOUT SERVICE (Stellar Style) */}
-<div className="mb-32">
-  <div className="text-center mb-16">
-    <h2 className="text-4xl font-bold mb-4">
-      About Our Transportation Service
-    </h2>
-    <p className="max-w-2xl mx-auto text-lg text-[#6B7280] dark:text-gray-300">
-      We provide safe, reliable, and compassionate non-emergency medical
-      transportation — treating every passenger like family.
-    </p>
-  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Professional Service",
+                text: "Certified drivers trained in patient sensitivity, first aid, and defensive driving.",
+                img: "https://images.unsplash.com/photo-1584515933487-779824d29309",
+              },
+              {
+                title: "Safe & Clean Vehicles",
+                text: "Routinely disinfected, detailed, and safety-inspected vehicles.",
+                img: cleanVehicleImg,
+              },
+              {
+                title: "We Care Like Family",
+                text: "Comfort, dignity, and compassion are at the heart of every ride.",
+                img: "https://images.unsplash.com/photo-1576765607924-3f7b8410a787",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className={`group rounded-2xl overflow-hidden backdrop-blur-sm border transition-all duration-700 hover:-translate-y-2 hover:shadow-xl ${
+                  darkMode
+                    ? "bg-gray-800/40 border-[#3ECFB2]/30"
+                    : "bg-white border-gray-200"
+                }`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    {[
-      {
-        title: "Professional Service",
-        text: "Certified drivers trained in patient sensitivity, first aid, and defensive driving.",
-        img: "https://images.unsplash.com/photo-1584515933487-779824d29309",
-      },
-      {
-        title: "Safe & Clean Vehicles",
-        text: "Routinely disinfected, detailed, and safety-inspected vehicles.",
-        img: cleanVehicleImg,
-      },
-      {
-        title: "We Care Like Family",
-        text: "Comfort, dignity, and compassion are at the heart of every ride.",
-        img: "https://images.unsplash.com/photo-1576765607924-3f7b8410a787",
-      },
-    ].map((item, i) => (
-      <div
-        key={i}
-        className={`group rounded-2xl overflow-hidden backdrop-blur-sm border transition-all duration-700 hover:-translate-y-2 hover:shadow-xl ${
-          darkMode ? "bg-gray-800/40 border-[#3ECFB2]/30" : "bg-white border-gray-200"
-        }`}
-      >
-        <div className="relative h-48 overflow-hidden">
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
+                <div className="p-6 text-center">
+                  <h3
+                    className={`text-xl font-semibold mb-2 ${
+                      darkMode ? "text-white" : "text-[#1F2937]"
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    className={`${
+                      darkMode ? "text-gray-300" : "text-[#6B7280]"
+                    } text-sm`}
+                  >
+                    {item.text}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-        <div className="p-6 text-center">
-          <h3 className={`text-xl font-semibold mb-2 ${darkMode ? "text-white" : "text-[#1F2937]"}`}>
-            {item.title}
-          </h3>
-          <p className={`${darkMode ? "text-gray-300" : "text-[#6B7280]"} text-sm`}>
-            {item.text}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-
-  <div className="mt-16 text-center">
-    <a
-      href="contact-us"
-      className="inline-block px-10 py-4 rounded-full text-lg font-semibold transition-all
-      bg-[#4B5BD7] text-white hover:bg-[#3ECFB2]"
-    >
-      Contact Us
-    </a>
-  </div>
+          <div className="mt-16 text-center">
+  <a
+    href="/booking"
+    className="inline-block px-10 py-4 rounded-full text-lg font-semibold text-white bg-[#FF7A6C] hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+  >
+    Book a Ride
+  </a>
 </div>
+        </motion.div>
 
-{/* VALUES */}
-<div>
-  <h2 className="text-4xl font-bold text-center mb-16">
-    Our Core Values
-  </h2>
+        {/* VALUES */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
+          <h2 className="text-4xl font-bold text-center mb-16">Our Core Values</h2>
 
-  <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-    {values.map((item, i) => (
-      <div
-        key={i}
-        className={`group p-8 rounded-2xl border text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-xl ${
-          darkMode
-            ? "bg-gray-800/40 border-[#3ECFB2]/30"
-            : "bg-white border-gray-200"
-        }`}
-      >
-        <div className="flex justify-center mb-5 text-[#3ECFB2] transition-all duration-300 group-hover:text-[#FF7A6C] group-hover:scale-110">
-          {item.icon}
-        </div>
-        <h4 className={`text-xl font-semibold mb-3 ${darkMode ? "text-white" : "text-[#1F2937]"}`}>
-          {item.title}
-        </h4>
-        <p className={`${darkMode ? "text-gray-300" : "text-[#6B7280]"} text-sm leading-relaxed`}>
-          {item.text}
-        </p>
-      </div>
-    ))}
-  </div>
-</div>
-
-        {/* TRUST STRIP */}
-        <div className="mt-32 text-center">
-          <h3 className="text-3xl font-bold mb-6">
-            Professional. Certified. Compassionate.
-          </h3>
-          <p className="max-w-2xl mx-auto text-[#6B7280] dark:text-gray-300">
-            Every transport reflects our commitment to safety, compliance, and
-            human-centered care — because every patient matters.
-          </p>
-        </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {values.map((item, i) => (
+              <motion.div
+                key={i}
+                className={`group p-8 rounded-2xl border text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-xl ${
+                  darkMode
+                    ? "bg-gray-800/40 border-[#3ECFB2]/30"
+                    : "bg-white border-gray-200"
+                }`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={i}
+              >
+                <div className="flex justify-center mb-5 text-[#3ECFB2] transition-all duration-300 group-hover:text-[#3ECFB2] group-hover:scale-110">
+                  {item.icon}
+                </div>
+                <h4
+                  className={`text-xl font-semibold mb-3 ${
+                    darkMode ? "text-white" : "text-[#1F2937]"
+                  }`}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  className={`${
+                    darkMode ? "text-gray-300" : "text-[#6B7280]"
+                  } text-sm leading-relaxed`}
+                >
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

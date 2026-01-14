@@ -81,9 +81,12 @@ const HowItWorks = () => {
 
       {/* Page Content */}
       <motion.div
-        className={`min-h-screen transition-colors duration-500 ${darkMode ? "bg-gray-900 text-white" : "bg-[#F7F9FC] text-[#1F2937]"}`}
-        variants={sectionVariants}
-      >
+  className={`min-h-screen pt-24 transition-colors duration-500 ${
+    darkMode ? "bg-gray-900 text-white" : "bg-[#F7F9FC] text-[#1F2937]"
+  }`}
+  variants={sectionVariants}
+>
+
           {/* Background Glow */}
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20" />
       <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20" />
@@ -94,9 +97,15 @@ const HowItWorks = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-[#4B5BD7] mb-4">
               How It Works
             </h1>
-            <p className="text-lg md:text-xl text-[#6B7280] dark:text-gray-300">
-              Simple, reliable, and compassionate non-emergency medical transportation — just a few steps away.
-            </p>
+            <p
+  className={`text-lg max-w-2xl mx-auto text-center ${
+    darkMode ? "text-gray-300" : "text-[#6B7280]"
+  }`}
+>
+  Simple, reliable, and compassionate non-emergency medical transportation — just a few steps away.
+</p>
+
+
           </motion.header>
 
           {/* Steps Section */}
@@ -135,8 +144,11 @@ const HowItWorks = () => {
             <h2 className="text-3xl font-bold mb-6 text-[#4B5BD7]">
               Ready to Book Your Ride?
             </h2>
-            <p className="text-lg mb-8 text-[#6B7280] dark:text-gray-300">
-              Schedule your non-emergency medical transport easily and securely.
+            <p
+  className={`text-lg mb-8 max-w-2xl mx-auto text-center ${
+    darkMode ? "text-gray-300" : "text-[#6B7280]"
+  }`}
+>  Schedule your non-emergency medical transport easily and securely.
             </p>
             <a
               href="/services/ground-medical-transport"

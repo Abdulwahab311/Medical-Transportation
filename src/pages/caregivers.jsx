@@ -54,10 +54,10 @@ const Caregivers = () => {
 
       {/* Page Wrapper */}
       <div
-        className={`min-h-screen transition-colors duration-500 ${
-          darkMode ? "bg-gray-900 text-white" : "bg-[#F7F9FC] text-[#1F2937]"
-        }`}
-      >
+  className={`min-h-screen pt-24 transition-colors duration-500 ${
+    darkMode ? "bg-gray-900 text-white" : "bg-[#F7F9FC] text-[#1F2937]"
+  }`}
+>
           {/* Background Glow */}
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20" />
       <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20" />
@@ -73,7 +73,11 @@ const Caregivers = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-[#4B5BD7] mb-4">
               Caregiver & Elderly-Focused Features
             </h1>
-            <p className="text-lg md:text-xl text-[#6B7280] dark:text-gray-300 max-w-2xl mx-auto">
+            <p
+  className={`text-lg max-w-2xl mx-auto text-center ${
+    darkMode ? "text-gray-300" : "text-[#6B7280]"
+  }`}
+>
               Simplify transportation management and ensure comfort, safety, and
               peace of mind for your patients.
             </p>

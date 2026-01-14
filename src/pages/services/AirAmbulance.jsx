@@ -79,10 +79,14 @@ const AirAmbulance = () => {
             <h2 className={`text-4xl font-semibold mb-6 ${darkMode ? "text-white" : "text-[#4B5BD7]"}`}>
               What Is Air Medical Transport?
             </h2>
-            <p className="text-lg text-[#6B7280] dark:text-gray-300 mb-6">
+            <p
+    className={`text-lg mb-6 ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
               Air ambulance transport is the fastest way to move critically ill patients with advanced medical care onboard aircraft configured as flying intensive care units. Our comprehensive coordination includes ground support and medical teams from pickup to destination.
             </p>
-            <ul className="space-y-2 text-[#1F2937] dark:text-gray-300">
+            <ul className={`space-y-2 ${darkMode ? "text-gray-300" : "text-[#1F2937]"}`}>
               <li>✔ ICU-equipped aircraft for critical transport</li>
               <li>✔ Dedicated flight medical crews</li>
               <li>✔ Worldwide coverage for emergencies</li>
@@ -141,21 +145,25 @@ const AirAmbulance = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 text-center">
-        <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7]">
-          Need Air Medical Transport?
-        </h2>
-        <p className="text-lg text-[#6B7280] dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-          Contact us 24/7 for a free consultation and personalized transport plan tailored to you or your loved one’s needs.
-        </p>
-        <a
-          href="/contact"
-          className="inline-block px-8 py-4 bg-[#FF7A6C] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF7A6C]/50 hover:bg-[#FF6A5A]"
-        >
-          Request Quote
-        </a>
-      </section>
+     {/* CTA Section */}
+<section className="py-24 text-center">
+  <h2 className="text-3xl font-semibold mb-6 text-[#4B5BD7]">
+    Need Air Medical Transport?
+  </h2>
+  <p
+    className={`text-lg max-w-2xl mx-auto text-center ${
+      darkMode ? "text-gray-300" : "text-[#6B7280]"
+    }`}
+  >
+    Contact us 24/7 for a free consultation and personalized transport plan tailored to you or your loved one’s needs.
+  </p>
+  <a
+    href="/contact"
+    className="inline-block mt-6 px-8 py-4 bg-[#FF7A6C] text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#FF7A6C]/50 hover:bg-[#FF6A5A]"
+  >
+    Request Quote
+  </a>
+</section>
 
       {/* Footer */}
       <Footer />
