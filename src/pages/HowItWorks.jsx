@@ -87,9 +87,7 @@ const HowItWorks = () => {
   variants={sectionVariants}
 >
 
-          {/* Background Glow */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20" />
+        
       
         <div className="max-w-6xl mx-auto px-4 py-20 font-inter">
           {/* Header */}

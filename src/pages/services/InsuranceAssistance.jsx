@@ -38,18 +38,16 @@ const InsuranceAssistance = () => {
       {/* Navbar */}
       <Navbar />
 
-      {/* Background Glow */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20 animate-pulse-slow" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20 animate-pulse-slow" />
+ 
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 text-center overflow-hidden animate-fade-in-up">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=1600&q=80')] bg-center bg-cover opacity-60 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=1600&q=80')] bg-[center_20%] bg-cover opacity-60 transition-all duration-700" />
         <div className="relative z-10 max-w-5xl mx-auto px-4">
-          <h1 className="text-5xl font-extrabold mb-4 bg-gradient-to-r from-[#4B5BD7] to-[#3ECFB2] bg-clip-text text-transparent transition-transform duration-700 hover:scale-105">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#4B5BD7]">
             Insurance Assistance
           </h1>
-          <p className="text-lg leading-relaxed text-[#1F2937] dark:text-gray-300 max-w-3xl mx-auto transition-opacity duration-700">
+          <p className="text-lg md:text-xl mb-8 text-white max-w-3xl mx-auto">
             We manage insurance approvals, claims, and documentation so families
             can focus on care, recovery, and peace of mind.
           </p>

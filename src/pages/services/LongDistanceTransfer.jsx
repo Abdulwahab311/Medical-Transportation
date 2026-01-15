@@ -38,18 +38,16 @@ const LongDistanceTransfer = () => {
 
       {/* Navbar */}
       <Navbar />
-        {/* Background Glow */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20" />
-
+        
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1600&q=80')] bg-center bg-cover opacity-60 transition-all duration-700" />
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1600&q=80')] bg-[center_20%] bg-cover opacity-60 transition-all duration-700" />
+
         <div className="relative z-10 max-w-5xl mx-auto px-4 animate-fade-in-up">
-          <h1 className="text-5xl font-extrabold mb-4 text-gradient bg-gradient-to-r from-[#4B5BD7] to-[#3ECFB2] bg-clip-text text-transparent transition-transform duration-700 hover:scale-105">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-[#4B5BD7]">
             Long Distance Medical Transport
           </h1>
-          <p className="text-lg text-[#1F2937] dark:text-gray-300 mb-8 transition-opacity duration-700">
+          <p className="text-lg md:text-xl mb-8 text-white max-w-3xl mx-auto">
             Professional, comfortable, and reliable medical transport services
             for long intercity and interstate journeys.
           </p>

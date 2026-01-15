@@ -126,9 +126,6 @@ const ServicesSection = () => {
       <section className="relative z-10 py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
 
-{/* Background Glow */}
-<div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20 animate-pulse-slow" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20 animate-pulse-slow" />
 
 
           {/* Header */}

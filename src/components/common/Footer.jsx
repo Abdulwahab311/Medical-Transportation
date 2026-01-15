@@ -1,7 +1,11 @@
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Ambulance, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") === "dark" ||
       window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -14,7 +18,6 @@ const Footer = () => {
     };
 
     applyTheme();
-
     window.addEventListener("storage", applyTheme);
     window.addEventListener("themeChange", applyTheme);
 
@@ -24,13 +27,25 @@ const Footer = () => {
     };
   }, []);
 
+  /* ---------- SERVICES SCROLL HANDLER ---------- */
+  const handleServicesClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: "services" } });
+    } else {
+      const section = document.getElementById("services");
+      section?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer
-      className={`relative overflow-hidden py-16 font-inter transition-colors duration-500 ${
-        darkMode
-          ? "bg-[#1F2937] text-[#F7F9FC]"
-          : "bg-[#F7F9FC] text-[#1F2937]"
-      }`}
+      className={`relative overflow-hidden py-16 font-inter transition-colors duration-500 backdrop-blur-md
+        ${
+          darkMode
+            ? "bg-gray-900 text-[#F7F9FC]"
+            : "bg-[#F7F9FC]/95 text-[#1F2937]"
+        }
+      `}
     >
       {/* Background accents */}
       <div className="absolute top-0 left-0 w-72 h-72 rounded-full blur-3xl opacity-20 bg-[#3ECFB2]/30 pointer-events-none animate-float" />
@@ -39,12 +54,13 @@ const Footer = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12">
         {/* Logo & Description */}
         <div className="space-y-4 animate-fade-up">
-          <div className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group w-fit">
             <Ambulance className="text-[#3ECFB2] transition-transform duration-300 group-hover:scale-110" />
             <span className="text-xl font-semibold text-[#4B5BD7]">
               Medical Transport
             </span>
-          </div>
+          </Link>
+
           <p className="text-sm leading-relaxed text-[#6B7280]">
             Professional emergency & non-emergency medical transportation services
             with patient-first care.
@@ -55,20 +71,19 @@ const Footer = () => {
         <div className="space-y-4 animate-fade-up delay-100">
           <h4 className="font-semibold text-[#4B5BD7]">Quick Links</h4>
           <ul className="space-y-2 text-sm text-[#6B7280]">
-            {[
-              "Services",
-              "Booking",
-              "Accessibility Statement",
-              "Privacy Policy & Terms",
-            ].map((item) => (
-              <li
-              key={item}
-              className="relative block cursor-pointer transition-all duration-300
-              hover:text-[#4B5BD7] hover:translate-x-1"
+            <li
+              onClick={handleServicesClick}
+              className="cursor-pointer transition-all duration-300 hover:text-[#4B5BD7] hover:translate-x-1"
             >
-              {item}
+              Services
             </li>
-            ))}
+            <li className="cursor-pointer hover:text-[#4B5BD7]">Booking</li>
+            <li className="cursor-pointer hover:text-[#4B5BD7]">
+              Accessibility Statement
+            </li>
+            <li className="cursor-pointer hover:text-[#4B5BD7]">
+              Privacy Policy & Terms
+            </li>
           </ul>
         </div>
 
@@ -77,10 +92,7 @@ const Footer = () => {
           <h4 className="font-semibold text-[#4B5BD7]">Care in Motion</h4>
 
           <p className="text-sm flex items-center gap-2 text-[#6B7280]">
-            <Heart
-              size={16}
-              className="text-[#FF7A6C] animate-pulse"
-            />
+            <Heart size={16} className="text-[#FF7A6C] animate-pulse" />
             Serving patients since 2010
           </p>
 

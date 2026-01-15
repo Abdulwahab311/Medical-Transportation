@@ -104,11 +104,7 @@ const HeroSection = () => {
     >
       <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Background Glow */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20 animate-pulse-slow" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20 animate-pulse-slow" />
-
-
+         
           {/* LEFT */}
           <div className="space-y-8">
             <div

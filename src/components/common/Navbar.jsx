@@ -93,7 +93,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             {[ 
-              { label: "Home", to: "/" },
+              
               { label: "How It Works", to: "/how-it-works" },
               { label: "For Caregivers", to: "/caregivers" },
               { label: "About Us", to: "/about" },
@@ -107,41 +107,62 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Services Dropdown after About Us */}
+          {/* Services Dropdown */}
 <div
   className="relative"
   onMouseEnter={() => setServicesOpen(true)}
- 
+  onMouseLeave={() => setServicesOpen(false)}
 >
   <button
-    className="flex items-center gap-1 px-4 py-2 font-medium hover:text-[#4B5BD7] transition-all duration-300 hover:-translate-y-0.5"
+    onClick={() => setServicesOpen((prev) => !prev)} // toggle on click
+    className="flex items-center gap-1 px-4 py-2 font-medium transition-all duration-300
+               hover:text-[#4B5BD7] hover:bg-transparent"
   >
     Services
     <ChevronDown
       size={16}
-      className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
+      className={`transition-transform duration-300 ${
+        servicesOpen ? "rotate-180" : ""
+      }`}
     />
   </button>
 
   <div
-    className={`absolute left-0 mt-3 w-96 rounded-xl shadow-xl border transition-all duration-300 origin-top
-    ${servicesOpen ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"}
-    ${darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"}`}
+    className={`absolute left-0 mt-3 w-96 rounded-xl shadow-xl border transition-all
+      duration-300 origin-top z-50
+      ${
+        servicesOpen
+          ? "opacity-100 scale-100 translate-y-0"
+          : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+      }
+      ${darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"}
+    `}
   >
     {services.map((service, i) => (
       <Link
         key={i}
         to={service.link}
-        onClick={(e) => e.stopPropagation()} // Prevent hover close on click
-        className="flex gap-4 px-6 py-4 transition-all duration-300 hover:bg-[#F7F9FC] dark:hover:bg-gray-700"
+        onClick={() => setServicesOpen(false)} // CLOSE on click
+        className={`flex gap-4 px-6 py-4 transition-all duration-300
+          ${
+            darkMode
+              ? "hover:bg-gray-700 text-white"
+              : "hover:bg-[#F7F9FC] text-gray-800"
+          }
+        `}
       >
         <div className="text-[#3ECFB2]">{service.icon}</div>
         <div>
           <h3 className="font-semibold">{service.title}</h3>
-          <p className="text-sm text-[#6B7280] dark:text-gray-300">{service.description}</p>
+          <p
+            className={`text-sm ${
+              darkMode ? "text-gray-300" : "text-[#6B7280]"
+            }`}
+          >
+            {service.description}
+          </p>
         </div>
       </Link>
-      
     ))}
   </div>
 </div>

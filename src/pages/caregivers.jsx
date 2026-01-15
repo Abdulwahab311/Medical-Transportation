@@ -58,9 +58,7 @@ const Caregivers = () => {
     darkMode ? "bg-gray-900 text-white" : "bg-[#F7F9FC] text-[#1F2937]"
   }`}
 >
-          {/* Background Glow */}
-      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full blur-3xl bg-[#3ECFB2]/20" />
-      <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] rounded-full blur-3xl bg-[#4B5BD7]/20" />
+      
       
         <div
           className={`max-w-6xl mx-auto px-4 py-20 font-inter transition-all duration-700 ${
