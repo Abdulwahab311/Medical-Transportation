@@ -44,7 +44,9 @@ const AirAmbulance = () => {
 
       {/* Hero Section */}
       <section
-        className="relative pt-32 pb-24 text-center overflow-hidden"
+       className="relative pt-36 pb-24 text-center overflow-hidden"
+     
+
         style={{
           backgroundImage: `url(${backgroundImg})`,
           backgroundPosition: "center",

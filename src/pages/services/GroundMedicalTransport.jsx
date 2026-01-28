@@ -43,7 +43,7 @@ const GroundMedicalTransport = () => {
       <Navbar />
   
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 text-center overflow-hidden">
+      <section className="relative pt-36 pb-24 text-center overflow-hidden">
   {/* Background Image */}
   <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1600&q=80')] bg-[center_20%] bg-cover opacity-60 transition-all duration-700" />
 

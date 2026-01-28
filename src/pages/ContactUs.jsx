@@ -29,7 +29,7 @@ const ContactUs = () => {
 
       {/* Page Content */}
       <div
-        className={`min-h-screen transition-colors duration-300 ${
+        className={`min-h-screen pt-24 transition-colors duration-300 ${
           darkMode ? "bg-gray-900 text-white" : "bg-[#F7F9FC] text-[#1F2937]"
         }`}
       >
